@@ -23,9 +23,9 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: 'dist/**' # Pull the build directory (React)
-    TargetFolder: '$(Dist.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs: 
-    PathtoPublish: $(Dist.ArtifactStagingDirectory) # dist or build files
+    PathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
     ArtifactName: 'www' # output artifact named www
