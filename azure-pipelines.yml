@@ -18,17 +18,5 @@ steps:
 - script: |
     npm install
     npm run build
+    scp -r dist root@115.159.146.173:/mnt/rxm_test
   displayName: 'npm install and build'
-
-- task: CopyFiles@2
-  inputs:
-    Contents: 'dist/**' # Pull the build directory (React)
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
-- task: PublishBuildArtifacts@1
-  inputs: 
-    PathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
-    ArtifactName: 'www' # output artifact named www
-
-- script: |
-    scp -r $(Build.ArtifactStagingDirectory) root@115.159.146.173:/mnt/rxm_test
