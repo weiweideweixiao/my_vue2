@@ -6,6 +6,11 @@
 trigger:
 - master
 
+# 定义变量，使用：$(变量名)
+variables:
+  containerName: blogapp
+  imageName: memoyu/blogapp
+
 pool:
   vmImage: ubuntu-latest
 
@@ -22,10 +27,13 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: 'dist/**' # Pull the build directory (React)
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: 'Dockerfile'
+    TargetFolder: 'dist'
 
-- task: PublishBuildArtifacts@1
-  inputs: 
-    PathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
-    ArtifactName: 'www' # output artifact named www
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub'
+    repository: $(imageName)
+    command: 'buildAndPush'
+    Dockerfile: 'dist/Dockerfile'
+    tags: 'latest'
