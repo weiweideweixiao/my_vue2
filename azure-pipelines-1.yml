@@ -18,5 +18,7 @@ steps:
 - script: |
     npm install
     npm run build
+    cd  ~/.ssh/
+    rm  known_hosts
     scp -r dist  root@115.159.146.173:/mnt/rxm_test
   displayName: 'npm install and build'
