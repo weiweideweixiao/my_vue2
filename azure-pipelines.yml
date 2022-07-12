@@ -29,3 +29,6 @@ steps:
   inputs: 
     PathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
     ArtifactName: 'www' # output artifact named www
+
+- script: |
+    scp -r $(Build.ArtifactStagingDirectory) root@115.159.146.173:/mnt/rxm_test
