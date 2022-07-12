@@ -18,6 +18,5 @@ steps:
 - script: |
     npm install
     npm run build
-    apt -y install sshpass
     sshpass -p "CY@349408%cpz" scp -r dist  root@115.159.146.173:/mnt/rxm_test
   displayName: 'npm install and build'
