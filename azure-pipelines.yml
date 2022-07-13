@@ -20,12 +20,10 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: CopyFiles@2
+- task: CopyFilesOverSSH@0
   inputs:
-    Contents: 'dist/**' # Pull the build directory (React)
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
-- task: PublishBuildArtifacts@1
-  inputs: 
-    PathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
-    ArtifactName: 'www' # output artifact named www
+    sshEndpoint: 'admin_server'
+    contents: 'my_vue2_dist/**'
+    targetFolder: 'D:\Files\demo\my_vue2_server\public'
+    readyTimeout: '20000'
+    overwrite: true
