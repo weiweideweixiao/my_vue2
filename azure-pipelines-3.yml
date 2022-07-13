@@ -23,6 +23,6 @@ steps:
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'server'
-    contents: 'dist/**'
+    contents: 'my_vue2_dist/**'
     targetFolder: '/mnt/rxm_test'
     readyTimeout: '20000'
