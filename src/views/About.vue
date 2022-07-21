@@ -1,7 +1,27 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <p>新分支</p>
-    <p>修改master分支</p>
+  <div>
+<div>about页面</div>
+<iframe width="900px" height="500px" src="http://tickset.peerfintech.com/#/login"></iframe>
+
+
+
+
+
+
   </div>
 </template>
+
+<script>
+
+
+export default {
+
+}
+</script>
+
+  
+
+<style>
+
+</style>
+
