@@ -22,8 +22,7 @@ steps:
 
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'admin_server'
+    sshEndpoint: 'server'
     contents: 'my_vue2_dist/**'
-    targetFolder: 'D:\Files\demo\my_vue2_server\public'
+    targetFolder: '/mnt/rxm_test'
     readyTimeout: '20000'
-    overwrite: true
