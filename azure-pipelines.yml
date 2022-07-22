@@ -20,7 +20,6 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- 
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'server'
