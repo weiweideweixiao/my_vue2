@@ -20,9 +20,13 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- 
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'server'
     contents: 'my_vue2_dist/**'
     targetFolder: '/mnt/rxm_test'
+    cleanTargetFolder: true
     readyTimeout: '20000'
+
+
